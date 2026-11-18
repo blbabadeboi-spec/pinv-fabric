@@ -1,4 +1,4 @@
-name: Build
+name: Build 1.8.9
 on:
   push:
   workflow_dispatch:
@@ -10,12 +10,15 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
-      - uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: 8.5
-      - run: gradle build --no-daemon
+          java-version: 8
+      - name: Baixar Gradle 2.14.1
+        run: |
+          curl -sL https://services.gradle.org/distributions/gradle-2.14.1-bin.zip -o gradle.zip
+          unzip -q gradle.zip
+          chmod +x gradle-2.14.1/bin/gradle
+      - name: Compilar
+        run: ./gradle-2.14.1/bin/gradle setupCIWorkspace build --no-daemon
       - uses: actions/upload-artifact@v4
         with:
-          name: pinv-jar
+          name: pinv-1-8-9-jar
           path: build/libs/*.jar

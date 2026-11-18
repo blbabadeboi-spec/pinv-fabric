@@ -1,0 +1,7 @@
+Mod Pinv Tools para Minecraft 1.8.9 (Forge 11.15.1.2318)
+
+1. Crie um repositorio NOVO no GitHub (ex.: pinv-1-8-9).
+2. Suba o conteudo desta pasta (build.gradle, settings.gradle, gradle.properties e a pasta src).
+3. Crie o arquivo .github/workflows/build.yml (Add file > Create new file) e cole o texto do build.yml.
+4. Aba Actions: espere o build; baixe o artefato "pinv-1-8-9-jar".
+5. Use o .jar SEM "sources" no nome na pasta mods do Minecraft 1.8.9 com Forge.
